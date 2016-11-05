@@ -10,6 +10,20 @@ public class DataItem{
   private String image;
 }
 ```
+##2. Store Data in SharedPreferences
+###1. About shared preferences
+####00:41 default and named preferences
+```
+SharedPreferences.Editor editor = getSharedPreference(PREF,MODE_PRIVATE).edit()
+editor.putString(K,v);
+editor.apply();
+```
+####03:06 Retrieve
+```
+SharedPreferences prefs = getSharedPreference(PREF,MODE_PRIVATE);
+String userName = prefs.getString(k, "")
+```
+
 
 
 ##4. Manage Relational Data with SQLite
