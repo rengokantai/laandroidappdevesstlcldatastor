@@ -27,11 +27,40 @@ SQLiteStatement
 ```
 
 ###2 Create an SQLite database
+
+####01:50
+REAL = double in java
 ```
 import android.context.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 public class DBHelper extends SQLiteOperator{
-  
+  public DBHelper(Context context,String name,SQLiteDatabase.CursorFactiry factory,int version){
+    super(context,name,factory,version);
+  }
+}
+```
+then refactor (DBHelper.java)
+```
+public static final String DB_FILE_NAMW="test.db";
+public static final int DB_VERSION = 1;
+public DBHelper(Context context){
+  super(context,DBFILE,null,DBVERSION);
+}
+```
+
+####05:08
+ItemTable.java
+```
+public class
+```
+
+####05:17
+
+DBHelper.java
+```
+@Override
+public void onCreate(SQLiteDatabase db){
+  db.execSQL(ItemTable.SQL_CREATE)
 }
 ```
