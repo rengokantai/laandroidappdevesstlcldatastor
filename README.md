@@ -64,3 +64,21 @@ public void onCreate(SQLiteDatabase db){
   db.execSQL(ItemTable.SQL_CREATE)
 }
 ```
+
+
+###7 Filter and sort data
+####01:10 DataSource.java
+```
+public List<DataItem> getAllItems(){
+  List<DataItem> dataItems = new ArrayList<>();
+  Cursor cursor = mDatabase.query(Itemtable.TABLE_ITEMS, ItemsTable.ALL_CLOUMNS, null,null,null,null,ItemTable.COLUMN_NAME);
+  while(cursor.moveToNext()){
+    DataItem item = new DataItem();
+    item.setItemId(cursor.getString(cursor.getColumnIndex(ItemsTable.COLUMN_ID)));
+    ...
+    dataItems.add(item);
+  }
+  cursor.close();
+  return dataItems;
+}
+```
